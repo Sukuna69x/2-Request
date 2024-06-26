@@ -15,7 +15,8 @@ import requests
 import time
 from datetime import datetime
 from database.database import user_data, db_verify_status, db_update_verify_status
-
+from database.db_token import db_verify_status, db_update_verify_status
+from config import*
 
 async def is_subscribed(filter, client, update):
     if not FORCE_SUB_CHANNEL:
