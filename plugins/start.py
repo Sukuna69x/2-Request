@@ -18,6 +18,8 @@ from database.database import add_user, del_user, full_userbase, present_user, i
 
 
 
+SECONDS = int(os.getenv("SECONDS", "600"))
+
 @Bot.on_message(filters.command('start') & filters.private)
 async def start_command(client: Client, message):
     id = message.from_user.id
@@ -143,13 +145,19 @@ async def start_command(client: Client, message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.5)
+                f = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                f = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+
             except:
                 pass
+        k = await client.send_message(chat_id = message.from_user.id, text=f"<b>🟢 This video / file will be deleted in 10 minutes (Due to copyright issues).\n\n🔆 Please forward this video / file to somewhere else and start downloading there.</b>")
+        await asyncio.sleep(SECONDS)
+        await f.delete()
+        await k.edit_text("**📴 Your video / file is successfully deleted !**")
+      
         return
     else:
         reply_markup = InlineKeyboardMarkup(
