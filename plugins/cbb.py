@@ -14,7 +14,9 @@ async def cb_handler(client: Bot, query: CallbackQuery):
 ℹ️ Bot Developer: @StupidBoi69
 ⏏️ More Bots: @jr_bots</b>
 
-``` 💰 Personal file sharing bot hosting available. ``` 
+```
+💰 Personal file sharing bot hosting available.
+``` 
 """,
             
             disable_web_page_preview = True,
