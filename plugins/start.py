@@ -31,14 +31,14 @@ async def start_command(client: Client, message):
         if client.link_one is not None and message.from_user.id not in ADMINS and not await is_requested_one(message):
             btn = [[
                 InlineKeyboardButton(
-                    "🎗 Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 1 🎗", url=client.link_one)
+                    "↗️ Request To Join Channel 1", url=client.link_one)
             ]]
             try:
                 if client.link_two is not None and message.from_user.id not in ADMINS and not await is_requested_two(message):
                     btn.append(
                           [
                         InlineKeyboardButton(
-                            "🎗 Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 2 🎗", url=client.link_two)
+                            "↗️ Request To Join Channel 2", url=client.link_two)
                           ]
                     )
             except Exception as e:
@@ -64,14 +64,14 @@ async def start_command(client: Client, message):
         if client.link_two is not None and message.from_user.id not in ADMINS and not await is_requested_two(message):
             btn = [[
                 InlineKeyboardButton(
-                    "🎗 Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 1 🎗", url=client.link_two)
+                    "↗️ Request To Join Channel 1", url=client.link_two)
             ]]
             try:
                 if client.link_one is not None and message.from_user.id not in ADMINS and not await is_requested_one(message):
                     btn.append(
                           [
                         InlineKeyboardButton(
-                            "🎗 Rᴇǫᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Cʜᴀɴɴᴇʟ 2", url=client.link_one)
+                            "↗️ Request To Join Channel 2", url=client.link_one)
                           ]
                     )
             except Exception as e:
@@ -80,7 +80,7 @@ async def start_command(client: Client, message):
                 btn.append(
                       [
                         InlineKeyboardButton(
-                             text = 'Try Again',
+                             text = '🔃 Try Again',
                              url = f"https://t.me/{client.username}?start={message.command[1]}"
                         )
                     ]
@@ -155,8 +155,8 @@ async def start_command(client: Client, message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("🏷️ More", callback_data = "about"),
+                    InlineKeyboardButton("📴 Close", callback_data = "close")
                 ]
             ]
         )
