@@ -66,14 +66,14 @@ async def start_command(client: Client, message):
         if client.link_two is not None and message.from_user.id not in ADMINS and not await is_requested_two(message):
             btn = [[
                 InlineKeyboardButton(
-                    "↗️ Request To Join Channel 1", url=client.link_two)
+                    "↗️ Request To Join Channel 2", url=client.link_two)
             ]]
             try:
                 if client.link_one is not None and message.from_user.id not in ADMINS and not await is_requested_one(message):
                     btn.append(
                           [
                         InlineKeyboardButton(
-                            "↗️ Request To Join Channel 2", url=client.link_one)
+                            "↗️ Request To Join Channel 1", url=client.link_one)
                           ]
                     )
             except Exception as e:
