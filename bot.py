@@ -5,12 +5,13 @@ from plugins import web_server
 
 import pyromod.listen
 from pyrogram import Client
+import pyrogram.utils
 from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
 
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, CHANNEL_ID, PORT, CHANNEL_ONE, CHANNEL_TWO
-
+pyrogram.utils.MIN_CHANNEL_ID = -1009147483647
 
 name ="""
 ░█████╗░░█████╗░██████╗░███████╗██╗░░██╗██████╗░░█████╗░████████╗███████╗
